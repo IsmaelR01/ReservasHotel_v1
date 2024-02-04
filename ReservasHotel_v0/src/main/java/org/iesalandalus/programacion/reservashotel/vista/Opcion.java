@@ -3,18 +3,20 @@ package org.iesalandalus.programacion.reservashotel.vista;
 public enum Opcion {
 
     SALIR("Salir"),
-    INSERTAR_HUESPED("Insertar Huésped"),
-    BUSCAR_HUESPED("Buscar Huésped"),
+    INSERTAR_HUESPED("Insertar Huï¿½sped"),
+    BUSCAR_HUESPED("Buscar Huï¿½sped"),
     BORRAR_HUESPED("Borrar Huesped"),
-    MOSTRAR_HUESPEDES("Mostrar Huéspedes"),
+    MOSTRAR_HUESPEDES("Mostrar Huï¿½spedes"),
     INSERTAR_HABITACION("Insertar Habitacion"),
     BUSCAR_HABITACION("Buscar Habitacion"),
-    BORRAR_HABITACION("Borrar Habitación"),
+    BORRAR_HABITACION("Borrar Habitaciï¿½n"),
     MOSTRAR_HABITACIONES("Mostrar Habitaciones"),
     INSERTAR_RESERVA("Insertar Reserva"),
     ANULAR_RESERVA("Anular Reserva"),
     MOSTRAR_RESERVAS("Mostrar Reservas"),
-    CONSULTAR_DISPONIBILIDAD("Consultar Disponibilidad");
+    CONSULTAR_DISPONIBILIDAD("Consultar Disponibilidad"),
+    REALIZAR_CHECKIN("Realizar CheckIn"),
+    REALIZAR_CHECKOUT("Realizar CheckOut");
 
     private String mensajeAMostrar;
 
