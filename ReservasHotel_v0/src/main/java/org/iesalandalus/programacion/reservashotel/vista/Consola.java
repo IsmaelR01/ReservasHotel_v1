@@ -5,6 +5,7 @@ import org.iesalandalus.programacion.utilidades.Entrada;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Consola {
@@ -77,6 +78,15 @@ public class Consola {
             fecha = Entrada.cadena();
             return LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         } while (fecha == null);
+    }
+
+    public static LocalDateTime leerFechaHora(String mensaje) {
+        String fecha;
+        do {
+            System.out.println(mensaje);
+            fecha = Entrada.cadena();
+            return LocalDateTime.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss"));
+        }while(fecha == null);
     }
 
 
