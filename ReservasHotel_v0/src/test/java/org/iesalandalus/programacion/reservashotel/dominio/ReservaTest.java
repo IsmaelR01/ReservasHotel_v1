@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.reservashotel.dominio;
+package org.iesalandalus.programacion.reservashotel.modelo.dominio;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ReservaTest {
 
-    private static final String ERROR_EXCEPCION = "Debería haber saltado la excepción.";
-    private static final String ERROR_NO_EXCEPCION = "No debería haber saltado la excepción.";
-    private static final String NOMBRE_ARDR = "Andrés Rubio Del Río";
+    private static final String ERROR_EXCEPCION = "Deberï¿½a haber saltado la excepciï¿½n.";
+    private static final String ERROR_NO_EXCEPCION = "No deberï¿½a haber saltado la excepciï¿½n.";
+    private static final String NOMBRE_ARDR = "Andrï¿½s Rubio Del Rï¿½o";
     private static final String DNI_ARDR = "22334455Y";
     private static final String TELEFONO_ARDR = "666223344";
     private static final String CORREO_ARDR = "andres.rubio@iesalandalus.org";
@@ -36,39 +36,39 @@ public class ReservaTest {
     private static final LocalDate FECHA_INICIO_FUTURA_VALIDA=LocalDate.now().plusDays(3);
     private static final LocalDate FECHA_FIN_FUTURA_VALIDA=FECHA_INICIO_FUTURA_VALIDA.plusDays(7);
 
-    private static final String OBJETO_DEBERIA_SER_NULO = "No se debería haber creado el objeto reserva.";
-    private static final String MENSAJE_EXCEPCION_NO_CORRECTO = "El mensaje devuelto por la excepción no es correcto.";
-    private static final String ERROR_HUESPED_NULO="ERROR: El huésped de una reserva no puede ser nulo.";
-    private static final String ERROR_HABITACION_NULA="ERROR: La habitación de una reserva no puede ser nula.";
-    private static final String ERROR_REGIMEN_NULO="ERROR: El régimen de una reserva no puede ser nulo.";
+    private static final String OBJETO_DEBERIA_SER_NULO = "No se deberï¿½a haber creado el objeto reserva.";
+    private static final String MENSAJE_EXCEPCION_NO_CORRECTO = "El mensaje devuelto por la excepciï¿½n no es correcto.";
+    private static final String ERROR_HUESPED_NULO="ERROR: El huï¿½sped de una reserva no puede ser nulo.";
+    private static final String ERROR_HABITACION_NULA="ERROR: La habitaciï¿½n de una reserva no puede ser nula.";
+    private static final String ERROR_REGIMEN_NULO="ERROR: El rï¿½gimen de una reserva no puede ser nulo.";
     private static final String ERROR_FECHA_INICIO_NULA="ERROR: La fecha de inicio de una reserva no puede ser nula.";
     private static final String ERROR_FECHA_FIN_NULA="ERROR: La fecha de fin de una reserva no puede ser nula.";
-    private static final String RESERVA_NULA = "Debería haber saltado una excepción indicando que no se puede copiar una reserva nula.";
+    private static final String RESERVA_NULA = "Deberï¿½a haber saltado una excepciï¿½n indicando que no se puede copiar una reserva nula.";
     private static final String ERROR_COPIAR_RESERVA_NULA = "ERROR: No es posible copiar una reserva nula.";
-    private static final String TIPO_EXCEPCION_NO_CORRECTA = "El tipo de la excepción no es correcto.";
+    private static final String TIPO_EXCEPCION_NO_CORRECTA = "El tipo de la excepciï¿½n no es correcto.";
     private static final String ERROR_FECHA_INICIO_RESERVA_NULA="ERROR: La fecha de inicio de una reserva no puede ser nula.";
 
     private static final String ERROR_FECHA_FIN_RESERVA_NULA="ERROR: La fecha de fin de una reserva no puede ser nula.";
 
-    private static final String ERROR_EXCEPCION_FECHA_INICIO_RESERVA="Debería haber saltado una excepción indicando que no se puede establecer una fecha de inicio de reserva nula.";
-    private static final String ERROR_EXCEPCION_FECHA_FIN_RESERVA="Debería haber saltado una excepción indicando que no se puede establecer una fecha de fin de reserva nula.";
-    private static final String ERROR_FECHA_INICIO_RESERVA_ANTERIOR="ERROR: La fecha de inicio de la reserva no puede ser anterior al día de hoy.";
+    private static final String ERROR_EXCEPCION_FECHA_INICIO_RESERVA="Deberï¿½a haber saltado una excepciï¿½n indicando que no se puede establecer una fecha de inicio de reserva nula.";
+    private static final String ERROR_EXCEPCION_FECHA_FIN_RESERVA="Deberï¿½a haber saltado una excepciï¿½n indicando que no se puede establecer una fecha de fin de reserva nula.";
+    private static final String ERROR_FECHA_INICIO_RESERVA_ANTERIOR="ERROR: La fecha de inicio de la reserva no puede ser anterior al dï¿½a de hoy.";
     private static final String ERROR_FECHA_FIN_RESERVA_ANTERIOR="ERROR: La fecha de fin de la reserva debe ser posterior a la de inicio.";
-    private static final String ERROR_EXCEPCION_FECHA_INICIO="Debería haber saltado una excepción indicando que la fecha de inicio no es correcta.";
-    private static final String ERROR_EXCEPCION_FECHA_FIN="Debería haber saltado una excepción indicando que la fecha de fin no es correcta.";
+    private static final String ERROR_EXCEPCION_FECHA_INICIO="Deberï¿½a haber saltado una excepciï¿½n indicando que la fecha de inicio no es correcta.";
+    private static final String ERROR_EXCEPCION_FECHA_FIN="Deberï¿½a haber saltado una excepciï¿½n indicando que la fecha de fin no es correcta.";
     private static final String ERROR_FECHA_INICIO_RESERVA_POSTERIOR="ERROR: La fecha de inicio de la reserva no puede ser posterior a seis meses.";
-    private static final String ERROR_EXCEPCION_CHECKIN_NULO="Debería haber saltado una excepción indicando que no se puede establecer una fecha de checkin nula.";
-    private static final String ERROR_EXCEPCION_CHECKIN="Debería haber saltado una excepción indicando que el checkin no es válido.";
+    private static final String ERROR_EXCEPCION_CHECKIN_NULO="Deberï¿½a haber saltado una excepciï¿½n indicando que no se puede establecer una fecha de checkin nula.";
+    private static final String ERROR_EXCEPCION_CHECKIN="Deberï¿½a haber saltado una excepciï¿½n indicando que el checkin no es vï¿½lido.";
     private static final String ERROR_CHECKIN_NULO="ERROR: El checkin de una reserva no puede ser nulo.";
     private static final String ERROR_CHECKIN_ANTERIOR="ERROR: El checkin de una reserva no puede ser anterior a la fecha de inicio de la reserva.";
-    private static final String ERROR_EXCEPCION_CHECKOUT_NULO="Debería haber saltado una excepción indicando que no se puede establecer una fecha de checkout nula.";
+    private static final String ERROR_EXCEPCION_CHECKOUT_NULO="Deberï¿½a haber saltado una excepciï¿½n indicando que no se puede establecer una fecha de checkout nula.";
     private static final String ERROR_CHECKOUT_NULO="ERROR: El checkout de una reserva no puede ser nulo.";
-    private static final String ERROR_EXCEPCION_CHECKOUT="Debería haber saltado una excepción indicando que el checkout no es válido.";
+    private static final String ERROR_EXCEPCION_CHECKOUT="Deberï¿½a haber saltado una excepciï¿½n indicando que el checkout no es vï¿½lido.";
     private static final String ERROR_CHECKOUT_ANTERIOR="ERROR: El checkout de una reserva no puede ser anterior al checkin.";
-    private static final String ERROR_CHECKOUT_POSTERIOR="ERROR: El checkout de una reserva puede ser como máximo 12 horas después de la fecha de fin de la reserva.";
+    private static final String ERROR_CHECKOUT_POSTERIOR="ERROR: El checkout de una reserva puede ser como mï¿½ximo 12 horas despuï¿½s de la fecha de fin de la reserva.";
     private static final String MENSAJE_PRECIO_NO_CORRECTO="El precio calculado no es correcto.";
-    private static final String ERROR_NUMERO_PERSONAS_RESERVA="ERROR: El número de personas de una reserva no puede ser menor o igual a 0.";
-    private static final String ERROR_NUMERO_MAXIMO_PERSONAS_RESERVA="ERROR: El número de personas de una reserva no puede superar al máximo de personas establacidas para el tipo de habitación reservada.";
+    private static final String ERROR_NUMERO_PERSONAS_RESERVA="ERROR: El nï¿½mero de personas de una reserva no puede ser menor o igual a 0.";
+    private static final String ERROR_NUMERO_MAXIMO_PERSONAS_RESERVA="ERROR: El nï¿½mero de personas de una reserva no puede superar al mï¿½ximo de personas establacidas para el tipo de habitaciï¿½n reservada.";
 
     @Test
     public void constructorParametrosValidoCreaReservaCorrectamenteTest() {
@@ -372,7 +372,7 @@ public class ReservaTest {
     void toStringDevuelveLaCadenaEsperada() {
         Reserva reserva = new Reserva(huesped, habitacionSimple,REGIMEN_PENSION_COMPLETA,FECHA_INICIO_FUTURA_VALIDA, FECHA_FIN_FUTURA_VALIDA,1);
 
-        String cadenaEsperada=String.format("Huesped: %s %s Habitación:%s - %s Fecha Inicio Reserva: %s Fecha Fin Reserva: %s Checkin: %s Checkout: %s Precio: %.2f Personas: %d", reserva.getHuesped().getNombre(), reserva.getHuesped().getDni(),
+        String cadenaEsperada=String.format("Huesped: %s %s Habitaciï¿½n:%s - %s Fecha Inicio Reserva: %s Fecha Fin Reserva: %s Checkin: %s Checkout: %s Precio: %.2f Personas: %d", reserva.getHuesped().getNombre(), reserva.getHuesped().getDni(),
                 reserva.getHabitacion().getIdentificador(),reserva.getHabitacion().getTipoHabitacion(), reserva.getFechaInicioReserva().format(formatoFecha),
                 reserva.getFechaFinReserva().format(formatoFecha), "No registrado", "No registrado", reserva.getPrecio(), 1);
 
@@ -381,7 +381,7 @@ public class ReservaTest {
         reserva.setCheckIn(reserva.getFechaInicioReserva().atStartOfDay().plus(3, ChronoUnit.HOURS));
         reserva.setCheckOut(reserva.getFechaFinReserva().atStartOfDay().plus(3,ChronoUnit.HOURS));
 
-        cadenaEsperada=String.format("Huesped: %s %s Habitación:%s - %s Fecha Inicio Reserva: %s Fecha Fin Reserva: %s Checkin: %s Checkout: %s Precio: %.2f Personas: %d", reserva.getHuesped().getNombre(), reserva.getHuesped().getDni(),
+        cadenaEsperada=String.format("Huesped: %s %s Habitaciï¿½n:%s - %s Fecha Inicio Reserva: %s Fecha Fin Reserva: %s Checkin: %s Checkout: %s Precio: %.2f Personas: %d", reserva.getHuesped().getNombre(), reserva.getHuesped().getDni(),
                 reserva.getHabitacion().getIdentificador(),reserva.getHabitacion().getTipoHabitacion(), reserva.getFechaInicioReserva().format(formatoFecha),
                 reserva.getFechaFinReserva().format(formatoFecha), reserva.getCheckIn().format(formatoFechaHora),
                 reserva.getCheckOut().format(formatoFechaHora), reserva.getPrecio(), 1);

@@ -1,12 +1,12 @@
 package org.iesalandalus.programacion.reservashotel;
 
-import org.iesalandalus.programacion.reservashotel.dominio.Habitacion;
-import org.iesalandalus.programacion.reservashotel.dominio.Huesped;
-import org.iesalandalus.programacion.reservashotel.dominio.Reserva;
-import org.iesalandalus.programacion.reservashotel.dominio.TipoHabitacion;
-import org.iesalandalus.programacion.reservashotel.negocio.Habitaciones;
-import org.iesalandalus.programacion.reservashotel.negocio.Huespedes;
-import org.iesalandalus.programacion.reservashotel.negocio.Reservas;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.Habitacion;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.Huesped;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.Reserva;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.TipoHabitacion;
+import org.iesalandalus.programacion.reservashotel.modelo.negocio.Habitaciones;
+import org.iesalandalus.programacion.reservashotel.modelo.negocio.Huespedes;
+import org.iesalandalus.programacion.reservashotel.modelo.negocio.Reservas;
 import org.iesalandalus.programacion.reservashotel.vista.Consola;
 import org.iesalandalus.programacion.reservashotel.vista.Opcion;
 import org.iesalandalus.programacion.utilidades.Entrada;
@@ -78,7 +78,7 @@ public class MainApp {
                 consultarDisponibilidad(Consola.leerTipoHabitacion(),Consola.leerfecha("Introduce fecha inicio reserva formato (dd/MM/yyyy)"),Consola.leerfecha("Introduce fecha fin reserva formato (dd/MM/yyyy)"));
 
             default:
-                System.out.println("Opción no valida inténtalo de nuevo");
+                System.out.println("Opciï¿½n no valida intï¿½ntalo de nuevo");
 
         }
 
@@ -89,7 +89,7 @@ public class MainApp {
     private static void insertarHuesped() {
         try {
             huespedes.insertar(Consola.leerHuesped());
-            System.out.println("Huésped insertado correctamente.");
+            System.out.println("Huï¿½sped insertado correctamente.");
         }catch(NullPointerException | IllegalArgumentException | OperationNotSupportedException |
                DateTimeParseException e) {
             System.out.println(e.getMessage());
@@ -116,7 +116,7 @@ public class MainApp {
 
     private static void mostrarHuespedes() {
         if(huespedes.getTamano() == 0) {
-            System.out.println("No hay huéspedes para mostrar.");
+            System.out.println("No hay huï¿½spedes para mostrar.");
         }else{
             for(int i = 0; i<huespedes.get().length;i++) {
                 System.out.println(huespedes.get()[i].toString());
@@ -127,7 +127,7 @@ public class MainApp {
     private static void insertarHabitacion() {
         try {
             habitaciones.insertar(Consola.leerHabitacion());
-            System.out.println("Habitación insertada correctamente");
+            System.out.println("Habitaciï¿½n insertada correctamente");
         } catch (NullPointerException | IllegalArgumentException | OperationNotSupportedException e) {
             System.out.println(e.getMessage());
         }
@@ -144,7 +144,7 @@ public class MainApp {
     private static void borrarHabitacion() {
         try {
             habitaciones.borrar(Consola.leerHabitacionPorIdentificador());
-            System.out.println("Habitación borrada correctamente.");
+            System.out.println("Habitaciï¿½n borrada correctamente.");
         }catch (NullPointerException | IllegalArgumentException | OperationNotSupportedException e) {
             System.out.println(e.getMessage());
         }
@@ -165,7 +165,7 @@ public class MainApp {
             Reserva reserva = Consola.leerReserva();
             System.out.println("Ahora consulta disponibilidad");
             if(consultarDisponibilidad(reserva.getHabitacion().getTipoHabitacion(),reserva.getFechaInicioReserva(),reserva.getFechaFinReserva()) == null) {
-                System.out.println("La habitación no está disponible");
+                System.out.println("La habitaciï¿½n no estï¿½ disponible");
             }else{
                 System.out.println("Hay habitaciones disponibles, se puede insertar la reserva.");
                 reservas.insertar(reserva);
@@ -179,14 +179,14 @@ public class MainApp {
 
     private static void listarReservas(Huesped huesped) {
         if(huesped == null) {
-            System.out.println("El huésped no puede ser nulo.");
+            System.out.println("El huï¿½sped no puede ser nulo.");
         }
         try {
             Reserva[] reservasHuesped = reservas.getReservas(huesped);
             if (reservasHuesped.length == 0) {
-                System.out.println("El huésped no tiene reservas.");
+                System.out.println("El huï¿½sped no tiene reservas.");
             } else {
-                System.out.println("Reservas del huésped " + huesped + ":");
+                System.out.println("Reservas del huï¿½sped " + huesped + ":");
                 System.out.println(Arrays.toString(reservasHuesped));
             }
         } catch (NullPointerException | IllegalArgumentException e) {
@@ -196,12 +196,12 @@ public class MainApp {
 
     private static void listarReservas(TipoHabitacion tipoHabitacion) {
         if(tipoHabitacion == null) {
-            System.out.println("El tipo de habitación no puede ser nulo");
+            System.out.println("El tipo de habitaciï¿½n no puede ser nulo");
         }
         try {
             Reserva[] reservasTipoHabitacion = reservas.getReservas(tipoHabitacion);
             if (reservasTipoHabitacion.length == 0) {
-                System.out.println("No hay reservas para el tipo de habitación " + tipoHabitacion + ".");
+                System.out.println("No hay reservas para el tipo de habitaciï¿½n " + tipoHabitacion + ".");
             } else {
                 System.out.println("Reservas de habitaciones tipo " + tipoHabitacion + ":");
                 System.out.println(Arrays.toString(reservasTipoHabitacion));
@@ -240,7 +240,7 @@ public class MainApp {
 
             Reserva[] reservasAnulables = getReservasAnulables(reservasHuesped);
             if (reservasAnulables.length == 0) {
-                System.out.println("El huésped no tiene reservas anulables.");
+                System.out.println("El huï¿½sped no tiene reservas anulables.");
             }
                 System.out.println("Seleccione la reserva que desea anular:");
                 for (int i = 0; i < reservasAnulables.length; i++) {
@@ -249,17 +249,17 @@ public class MainApp {
 
                 int opcion;
                 do {
-                    System.out.println("Ingrese el número de la reserva a anular:");
+                    System.out.println("Ingrese el nï¿½mero de la reserva a anular:");
                     opcion = Entrada.entero();
                     if (opcion < 1 || opcion > reservasAnulables.length) {
-                        System.out.println("Opción incorrecta, inténtalo de nuevo.");
+                        System.out.println("Opciï¿½n incorrecta, intï¿½ntalo de nuevo.");
                     }
                 } while (opcion < 1 || opcion > reservasAnulables.length);
 
 
                 char respuesta;
                 do {
-                    System.out.println("¿Está seguro de que desea anular la reserva? (s/n)");
+                    System.out.println("ï¿½Estï¿½ seguro de que desea anular la reserva? (s/n)");
                     respuesta = Character.toLowerCase(Entrada.caracter());
                     if (respuesta != 's' && respuesta != 'n') {
                         System.out.println("Respuesta incorrecta, por favor ingrese 's' o 'n'.");
@@ -270,7 +270,7 @@ public class MainApp {
                     reservas.borrar(reservasAnulables[opcion - 1]);
                     System.out.println("Reserva anulada correctamente.");
                 } else {
-                    System.out.println("Anulación de reserva cancelada.");
+                    System.out.println("Anulaciï¿½n de reserva cancelada.");
                 }
 
         } catch (NullPointerException | IllegalArgumentException | OperationNotSupportedException e) {
@@ -321,7 +321,7 @@ public class MainApp {
                 if (numElementos == 0)
                 {
                     //Si la primera de las habitaciones encontradas del tipo solicitado no tiene reservas en el futuro,
-                    // quiere decir que está disponible.
+                    // quiere decir que estï¿½ disponible.
                     habitacionDisponible=new Habitacion(habitacionesTipoSolicitado[i]);
                     tipoHabitacionEncontrada=true;
                 }
@@ -329,7 +329,7 @@ public class MainApp {
 
                     //Ordenamos de mayor a menor las reservas futuras encontradas por fecha de fin de la reserva.
                     // Si la fecha de inicio de la reserva es posterior a la mayor de las fechas de fin de las reservas
-                    // (la reserva de la posición 0), quiere decir que la habitación está disponible en las fechas indicadas.
+                    // (la reserva de la posiciï¿½n 0), quiere decir que la habitaciï¿½n estï¿½ disponible en las fechas indicadas.
 
                     Arrays.sort(reservasFuturas, 0, numElementos, Comparator.comparing(Reserva::getFechaFinReserva).reversed());
 
@@ -345,7 +345,7 @@ public class MainApp {
                     {
                         //Ordenamos de menor a mayor las reservas futuras encontradas por fecha de inicio de la reserva.
                         // Si la fecha de fin de la reserva es anterior a la menor de las fechas de inicio de las reservas
-                        // (la reserva de la posición 0), quiere decir que la habitación está disponible en las fechas indicadas.
+                        // (la reserva de la posiciï¿½n 0), quiere decir que la habitaciï¿½n estï¿½ disponible en las fechas indicadas.
 
                         Arrays.sort(reservasFuturas, 0, numElementos, Comparator.comparing(Reserva::getFechaInicioReserva));
 
@@ -358,7 +358,7 @@ public class MainApp {
                         }
                     }
 
-                    //Recorremos el array de reservas futuras para ver si las fechas solicitadas están algún hueco existente entre las fechas reservadas
+                    //Recorremos el array de reservas futuras para ver si las fechas solicitadas estï¿½n algï¿½n hueco existente entre las fechas reservadas
                     if (!tipoHabitacionEncontrada)
                     {
                         for(int j=1;j<reservasFuturas.length && !tipoHabitacionEncontrada;j++)

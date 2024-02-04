@@ -1,9 +1,9 @@
-package org.iesalandalus.programacion.reservashotel.negocio;
+package org.iesalandalus.programacion.reservashotel.modelo.negocio;
 
 
 import org.iesalandalus.programacion.reservashotel.MainApp;
-import org.iesalandalus.programacion.reservashotel.dominio.Habitacion;
-import org.iesalandalus.programacion.reservashotel.dominio.TipoHabitacion;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.Habitacion;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.TipoHabitacion;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -14,23 +14,23 @@ import static org.junit.jupiter.api.Assertions.*;
 public class HabitacionesTest {
 
     private static final String ERROR_CAPACIDAD_NO_CORRECTA = "ERROR: La capacidad debe ser mayor que cero.";
-    private static final String ERROR_INSERTAR_HABITACION_NULA = "ERROR: No se puede insertar una habitación nula.";
-    private static final String ERROR_BORRAR_HABITACION_NULA = "ERROR: No se puede borrar una habitación nula.";
-    private static final String ERROR_NO_MAS_HABITACIONES = "ERROR: No se aceptan más habitaciones.";
-    private static final String ERROR_HABITACION_EXISTE = "ERROR: Ya existe una habitación con ese identificador.";
-    private static final String ERROR_HABITACION_BORRAR_NO_EXISTE = "ERROR: No existe ninguna habitación como la indicada.";
+    private static final String ERROR_INSERTAR_HABITACION_NULA = "ERROR: No se puede insertar una habitaciï¿½n nula.";
+    private static final String ERROR_BORRAR_HABITACION_NULA = "ERROR: No se puede borrar una habitaciï¿½n nula.";
+    private static final String ERROR_NO_MAS_HABITACIONES = "ERROR: No se aceptan mï¿½s habitaciones.";
+    private static final String ERROR_HABITACION_EXISTE = "ERROR: Ya existe una habitaciï¿½n con ese identificador.";
+    private static final String ERROR_HABITACION_BORRAR_NO_EXISTE = "ERROR: No existe ninguna habitaciï¿½n como la indicada.";
 
-    private static final String OPERACION_NO_PERMITIDA = "Debería haber saltado una excepción indicando que dicha operación no está permitida.";
-    private static final String HABITACION_NULA = "Debería haber saltado una excepción indicando que no se puede operar con un habitación nula.";
-    private static final String MENSAJE_EXCEPCION_NO_CORRECTO = "El mensaje devuelto por la excepción no es correcto.";
-    private static final String TIPO_EXCEPCION_NO_CORRECTO = "El tipo de la excepción no es correcto.";
-    private static final String EXCEPCION_NO_PROCEDE = "No debería haber saltado la excepción.";
-    private static final String OPERACION_NO_REALIZADA = "La operación no la ha realizado correctamente.";
-    private static final String HABITACIONES_NO_CREADAS = "Debería haber creado las habitaciones correctamente.";
+    private static final String OPERACION_NO_PERMITIDA = "Deberï¿½a haber saltado una excepciï¿½n indicando que dicha operaciï¿½n no estï¿½ permitida.";
+    private static final String HABITACION_NULA = "Deberï¿½a haber saltado una excepciï¿½n indicando que no se puede operar con un habitaciï¿½n nula.";
+    private static final String MENSAJE_EXCEPCION_NO_CORRECTO = "El mensaje devuelto por la excepciï¿½n no es correcto.";
+    private static final String TIPO_EXCEPCION_NO_CORRECTO = "El tipo de la excepciï¿½n no es correcto.";
+    private static final String EXCEPCION_NO_PROCEDE = "No deberï¿½a haber saltado la excepciï¿½n.";
+    private static final String OPERACION_NO_REALIZADA = "La operaciï¿½n no la ha realizado correctamente.";
+    private static final String HABITACIONES_NO_CREADAS = "Deberï¿½a haber creado las habitaciones correctamente.";
     private static final String REFERENCIA_NO_ESPERADA = "La referencia devuelta es la misma que la pasada.";
-    private static final String TAMANO_NO_ESPERADO = "El tamaño devuelto no es el esperado.";
-    private static final String HABITACION_NO_ESPERADA = "La habitación devuelta no es la que debería ser.";
-    private static final String OBJETO_DEBERIA_SER_NULO = "No se debería haber creado el objeto.";
+    private static final String TAMANO_NO_ESPERADO = "El tamaï¿½o devuelto no es el esperado.";
+    private static final String HABITACION_NO_ESPERADA = "La habitaciï¿½n devuelta no es la que deberï¿½a ser.";
+    private static final String OBJETO_DEBERIA_SER_NULO = "No se deberï¿½a haber creado el objeto.";
 
 
 
