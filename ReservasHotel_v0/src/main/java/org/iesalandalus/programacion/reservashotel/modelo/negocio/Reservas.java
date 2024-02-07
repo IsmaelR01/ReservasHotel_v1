@@ -192,11 +192,25 @@ public class Reservas {
     }
 
     public void realizarCheckIn(Reserva reserva, LocalDateTime fecha) {
-        reserva.setCheckIn(fecha);
+        for (int i = 0; i < coleccionReservas.length; i++) {
+            Reserva reservaCheckIn = coleccionReservas[i];
+            if (reservaCheckIn != null) {
+                if (reservaCheckIn.equals(reserva)) {
+                    reservaCheckIn.setCheckIn(fecha);
+                }
+            }
+        }
     }
 
     public void realizarCheckOut(Reserva reserva, LocalDateTime fecha) {
-        reserva.setCheckOut(fecha);
+        for (int i = 0; i < coleccionReservas.length; i++) {
+            Reserva reservaCheckOut = coleccionReservas[i];
+            if (reservaCheckOut != null) {
+                if (reservaCheckOut.equals(reserva)) {
+                    reservaCheckOut.setCheckOut(fecha);
+                }
+            }
+        }
     }
 
 }

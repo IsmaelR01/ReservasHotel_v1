@@ -8,6 +8,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import org.iesalandalus.programacion.reservashotel.modelo.Modelo.*;
+
+import static org.iesalandalus.programacion.reservashotel.modelo.Modelo.habitaciones;
+import static org.iesalandalus.programacion.reservashotel.modelo.Modelo.huespedes;
+
 public class Consola {
     private Consola() {
 
@@ -44,6 +49,8 @@ public class Consola {
             case 11 -> Opcion.ANULAR_RESERVA;
             case 12 -> Opcion.MOSTRAR_RESERVAS;
             case 13 -> Opcion.CONSULTAR_DISPONIBILIDAD;
+            case 14 -> Opcion.REALIZAR_CHECKIN;
+            case 15 -> Opcion.REALIZAR_CHECKOUT;
             default -> null;
         };
     }
@@ -67,7 +74,14 @@ public class Consola {
     public static Huesped getHuespedPorDni() {
         System.out.println("Introduce el dni del huésped");
         String dni = Entrada.cadena();
-        return new Huesped("Spiderman Rodriguez Cabrera", dni, "spiderman46@gmail.com", "643678941", LocalDate.of(1995, 7, 29));
+        Huesped[] busquedaHuesped = huespedes.get(); // Obtener el array de huéspedes
+        for (int i = 0; i < busquedaHuesped.length; i++) {
+            Huesped huesped = busquedaHuesped[i];
+            if (huesped.getDni().equals(dni)) {
+                return new Huesped(huesped.getNombre(), dni, huesped.getCorreo(), huesped.getTelefono(), huesped.getFechaNacimiento());
+            }
+        }
+        return new Huesped("Spiderman Rodríguez Cabrera",dni,"spidermanr46@gmail.com","675679876",LocalDate.of(2001,5,23));
     }
 
 
@@ -85,7 +99,7 @@ public class Consola {
         do {
             System.out.println(mensaje);
             fecha = Entrada.cadena();
-            return LocalDateTime.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss"));
+            return LocalDateTime.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         }while(fecha == null);
     }
 
@@ -104,11 +118,19 @@ public class Consola {
 
 
     public static Habitacion leerHabitacionPorIdentificador() {
-        System.out.println("Introduce el numero de planta");
-        int planta = Entrada.entero();
-        System.out.println("Introduce el número de puerta");
-        int puerta = Entrada.entero();
-        return new Habitacion(planta, puerta, 150.0, TipoHabitacion.DOBLE);
+            System.out.println("Introduce el numero de planta");
+            int planta = Entrada.entero();
+            System.out.println("Introduce el número de puerta");
+            int puerta = Entrada.entero();
+            String identificador = "" + planta + puerta;
+        Habitacion[] busquedaHabitacion = habitaciones.get();
+        for (int i = 0; i < busquedaHabitacion.length; i++) {
+            Habitacion habitacion = busquedaHabitacion[i];
+            if(habitacion.getIdentificador().equals(identificador)) {
+                return new Habitacion(planta,puerta,habitacion.getPrecio(),habitacion.getTipoHabitacion());
+            }
+        }
+        return new Habitacion(planta,puerta,145,TipoHabitacion.DOBLE);
     }
 
     public static TipoHabitacion leerTipoHabitacion() {
@@ -161,6 +183,7 @@ public class Consola {
     public static Reserva leerReserva() {
         System.out.println("Introduce el número de personas");
         int numPersonas = Entrada.entero();
+
         return new Reserva(getHuespedPorDni(), leerHabitacionPorIdentificador(), leerRegimen(), leerfecha("Introduce fecha inicio reserva formato (dd/MM/YYYY)"), leerfecha("Introduce la fecha de fin de la reserva formato (dd/MM/YYYY) "),numPersonas);
     }
 }
