@@ -27,12 +27,12 @@ public class Reserva {
         setFechaInicioReserva(fechaInicioReserva);
         setFechaFinReserva(fechaFinReserva);
         setNumeroPersonas(numeroPersonas);
-        setPrecio();
         if(getCheckIn() != null) {
             setCheckIn(checkIn);
         }
         if(getCheckOut() != null) {
             setCheckOut(checkOut);
+            setPrecio();
         }
     }
 
@@ -52,6 +52,7 @@ public class Reserva {
         }
         if(reserva.getCheckOut() != null) {
             setCheckOut(reserva.getCheckOut());
+            setPrecio();
         }
     }
 
